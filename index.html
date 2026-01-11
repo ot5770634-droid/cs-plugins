@@ -3,56 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Omar_Taha | Professional Hub v20</title>
+<title>Omar_Taha | Professional Hub v4.0</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <style>
-  :root { 
-    --primary: #8b5cf6; --bg-dark: #020617; --card-bg: rgba(15, 23, 42, 0.7);
-    --sidebar-bg: #0f172a; --border: #1e293b; --neon-glow: 0 0 10px rgba(139, 92, 246, 0.3);
-  }
-  .cyber-mode {
-    --primary: #d946ef; --bg-dark: #0a001a; --card-bg: rgba(30, 0, 60, 0.6);
-    --sidebar-bg: #150025; --border: #d946ef; --neon-glow: 0 0 20px rgba(217, 70, 239, 0.5);
-  }
-
+  :root { --primary: #8b5cf6; --bg-dark: #020617; --card-bg: rgba(15, 23, 42, 0.7); --sidebar-bg: #0f172a; --border: #1e293b; --neon-glow: 0 0 10px rgba(139, 92, 246, 0.3); }
+  .cyber-mode { --primary: #d946ef; --bg-dark: #0a001a; --card-bg: rgba(30, 0, 60, 0.6); --sidebar-bg: #150025; --border: #d946ef; --neon-glow: 0 0 20px rgba(217, 70, 239, 0.5); }
   body { font-family: 'Poppins', 'Cairo', sans-serif; background-color: var(--bg-dark); color: #f8fafc; margin: 0; display: flex; height: 100vh; overflow: hidden; transition: 0.5s; }
   #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
   .sidebar, .content-wrapper { position: relative; z-index: 2; }
-
-  #progress-bar { position: absolute; bottom: 0; left: 0; height: 3px; background: var(--primary); box-shadow: 0 0 10px var(--primary); transition: width 0.1s; width: 0%; }
-
-  .sidebar { width: 300px; background: var(--sidebar-bg); border-left: 1px solid var(--border); display: flex; flex-direction: column; transition: 0.5s; }
+  .sidebar { width: 280px; background: var(--sidebar-bg); border-left: 1px solid var(--border); display: flex; flex-direction: column; }
   .sidebar-header { padding: 1.5rem; text-align: center; font-weight: 800; border-bottom: 1px solid var(--border); color: var(--primary); font-size: 1.2rem; }
-  
-  .nav-menu { padding: 10px; border-bottom: 1px solid var(--border); }
-  .nav-btn { width: 100%; text-align: right; padding: 12px; margin-bottom: 5px; border-radius: 10px; font-size: 0.9rem; transition: 0.3s; color: #94a3b8; display: flex; align-items: center; gap: 10px; cursor: pointer; border: none; background: transparent; }
-  .nav-btn.active { background: var(--primary); color: white; box-shadow: var(--neon-glow); }
-
-  .search-input { width: 90%; margin: 10px auto; background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 8px 12px; border-radius: 8px; color: white; outline: none; display: block; }
-  .plugin-list { overflow-y: auto; flex: 1; }
-  .plugin-list li { margin: 2px 15px; padding: 8px; border-radius: 8px; cursor: pointer; color: #94a3b8; font-size: 0.8rem; text-align: right; transition: 0.2s; list-style: none; }
-  .plugin-list li:hover { background: rgba(139, 92, 246, 0.1); color: var(--primary); }
-  
+  .nav-menu { padding: 10px; flex: 1; overflow-y: auto; }
+  .nav-btn { width: 100%; text-align: right; padding: 12px; margin-bottom: 8px; border-radius: 12px; font-size: 0.95rem; transition: 0.3s; color: #94a3b8; display: flex; align-items: center; gap: 12px; cursor: pointer; border: 1px solid transparent; background: transparent; }
+  .nav-btn:hover { background: rgba(139, 92, 246, 0.1); color: white; }
+  .nav-btn.active { background: var(--primary); color: white; box-shadow: var(--neon-glow); border-color: var(--primary); }
   .content-wrapper { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
   header { position: relative; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 50; }
-
-  main { flex: 1; overflow-y: auto; scroll-behavior: smooth; padding-bottom: 50px; }
-  
-  .card { background: var(--card-bg); border-radius: 20px; padding: 1.5rem; margin: 1.5rem 2rem; border: 1px solid var(--border); transition: 0.3s; backdrop-filter: blur(5px); }
-  .card:hover { border-color: var(--primary); box-shadow: var(--neon-glow); }
-  
-  .code-box { background: #000; color: #10b981; padding: 1rem; border-radius: 12px; font-family: monospace; font-size: 0.8rem; overflow-x: auto; direction: ltr; text-align: left; margin-top: 10px; border: 1px solid var(--border); white-space: pre; }
-
-  .request-form { max-width: 600px; margin: 3rem auto; background: var(--card-bg); padding: 2.5rem; border-radius: 25px; border: 1px solid var(--primary); box-shadow: var(--neon-glow); }
-  .form-control { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--border); padding: 12px; border-radius: 10px; color: white; margin-top: 5px; outline: none; }
-  .submit-btn { width: 100%; background: var(--primary); color: white; padding: 15px; border-radius: 10px; font-weight: bold; margin-top: 20px; transition: 0.3s; cursor: pointer; border: none; }
-
-  #toast-container { position: fixed; bottom: 50px; left: 20px; z-index: 9999; }
-  .toast { background: var(--primary); color: white; padding: 12px 20px; border-radius: 10px; margin-top: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+  main { flex: 1; overflow-y: auto; scroll-behavior: smooth; padding: 2rem; }
+  .request-form { max-width: 650px; margin: 0 auto; background: var(--card-bg); padding: 2.5rem; border-radius: 25px; border: 1px solid var(--border); backdrop-filter: blur(10px); }
+  .code-box { background: #000; color: #10b981; padding: 1.2rem; border-radius: 12px; font-family: monospace; font-size: 0.85rem; text-align: left; direction: ltr; margin-top: 15px; border: 1px solid var(--border); white-space: pre; overflow-x: auto; }
   .hidden { display: none; }
+  #toast-container { position: fixed; bottom: 30px; left: 30px; z-index: 9999; }
+  .toast { background: var(--primary); color: white; padding: 12px 24px; border-radius: 12px; margin-top: 10px; }
 </style>
 </head>
 <body dir="rtl" id="bodyTag">
@@ -64,140 +39,181 @@
   <div class="sidebar-header">OMAR_TAHA HUB</div>
   <div class="nav-menu">
     <button class="nav-btn active" id="btn-home" onclick="showPage('home')">🏠 الرئيسية</button>
+    <button class="nav-btn" id="btn-plugins" onclick="showPage('plugins')">📦 البلجنات</button>
+    <button class="nav-btn" id="btn-colors" onclick="showPage('colors')">🎨 مولد الألوان</button>
+    <button class="nav-btn" id="btn-admin" onclick="showPage('admin')">🎖️ صانع الرتب</button>
     <button class="nav-btn" id="btn-request" onclick="showPage('request')">⚡ طلب برمجة</button>
-  </div>
-  <div id="sidebar-extra">
-    <input type="text" id="searchInput" class="search-input" placeholder="Search..." onkeyup="filterPlugins()">
-    <ul class="plugin-list" id="sidebarMenu"></ul>
+    <button class="nav-btn" id="btn-support" onclick="showPage('support')">✉️ الدعم الفني</button>
   </div>
 </div>
 
 <div class="content-wrapper">
   <header>
-    <div class="flex gap-2">
-      <button onclick="toggleLang()" class="bg-blue-600 px-3 py-1 rounded text-xs font-bold text-white">🌐 Lang</button>
-      <button onclick="toggleCyber()" class="bg-slate-800 px-3 py-1 rounded text-xs font-bold text-white">🌌 Mode</button>
-    </div>
-    <div id="progress-bar"></div>
+    <button onclick="toggleCyber()" class="bg-slate-800 px-4 py-1.5 rounded-full text-xs font-bold text-white">🌌 تغيير النمط</button>
+    <div class="text-blue-500 font-bold text-sm tracking-wider">OMAR_TAHA v4.0</div>
   </header>
 
-  <main id="mainContent" onscroll="updateScrollProgress()">
-    <div id="page-home"></div>
-    <div id="page-request" class="hidden">
-      <div class="request-form">
-        <h2 class="text-2xl font-bold mb-6 text-center text-white">طلب بلجن خاص</h2>
-        <input type="text" id="srvIP" class="form-control mb-4" placeholder="Server IP">
-        <textarea id="srvIdea" class="form-control mb-4" rows="4" placeholder="Idea..."></textarea>
-        <select id="srvBudget" class="form-control mb-4">
-            <option>Free / Basic</option>
-            <option>5$ - 20$</option>
-        </select>
-        <button class="submit-btn" onclick="sendToTelegram(this)">إرسال لتليجرام</button>
+  <main id="mainContent">
+    <div id="page-home" class="text-center py-20">
+      <h1 class="text-4xl font-extrabold mb-4 text-white">Hub عمر طه</h1>
+      <p class="text-gray-400 max-w-lg mx-auto leading-relaxed">المكان المخصص لبرمجة وأدوات سيرفرات AMX Mod X.</p>
+    </div>
+
+    <div id="page-plugins" class="hidden">
+      <div class="request-form !max-w-4xl">
+        <h2 class="text-2xl font-bold mb-6 text-white text-center">📦 مكتبة البلجنات</h2>
+        
+        <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700 mb-6">
+            <div class="flex justify-between items-center mb-2">
+                <h3 class="text-purple-400 font-bold">1. Reset Score (RS)</h3>
+                <button class="bg-blue-600 px-3 py-1 rounded text-xs text-white" onclick="copy('codeRS')">Copy Code</button>
+            </div>
+            <div class="code-box" id="codeRS">#include &lt;amxmodx&gt;
+#include &lt;fun&gt;
+#include &lt;cstrike&gt;
+
+#define PLUGIN "Reset Score"
+#define VERSION "1.0"
+#define AUTHOR "Omar_Plugins"
+
+public plugin_init() {
+    register_plugin(PLUGIN, VERSION, AUTHOR)
+    register_clcmd("say /rs", "reset_score")
+    register_clcmd("say /resetscore", "reset_score")
+}
+
+public reset_score(id) {
+    cs_set_user_deaths(id, 0)
+    set_user_frags(id, 0)
+    message_begin(MSG_ALL, get_user_msgid("ScoreInfo"))
+    write_byte(id)
+    write_short(0)
+    write_short(0)
+    write_short(0)
+    write_short(get_user_team(id))
+    message_end()
+    client_print_color(id, print_team_default, "^1[^4Server^1] Score ^3Reset ^1Successfully!")
+}</div>
+        </div>
+
+        <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700 mb-6">
+            <div class="flex justify-between items-center mb-2">
+                <h3 class="text-purple-400 font-bold">2. Simple AFK Manager</h3>
+                <button class="bg-blue-600 px-3 py-1 rounded text-xs text-white" onclick="copy('codeAFK')">Copy Code</button>
+            </div>
+            <div class="code-box" id="codeAFK">#include &lt;amxmodx&gt;
+#include &lt;cstrike&gt;
+#include &lt;facemeta&gt;
+
+#define PLUGIN "Simple AFK Manager"
+#define VERSION "1.0"
+#define AUTHOR "Omar_Plugins"
+
+#define MAX_AFK_TIME 45.0
+#define MAX_SPEC_TIME 120.0
+#define ADMIN_IMMUNITY ADMIN_RESERVATION
+
+new Float:g_afk_time[33]
+new Float:g_last_origin[33][3]
+
+public plugin_init() {
+    register_plugin(PLUGIN, VERSION, AUTHOR)
+    set_task(5.0, "check_afk", _, _, _, "b")
+}
+
+public check_afk() {
+    new players[32], num, id
+    get_players(players, num, "ch")
+    for (new i = 0; i < num; i++) {
+        id = players[i];
+        if (get_user_flags(id) & ADMIN_IMMUNITY) continue;
+        new Float:current_origin[3];
+        pev(id, pev_origin, current_origin);
+        if (get_distance_f(current_origin, g_last_origin[id]) > 10.0) {
+            g_afk_time[id] = 0.0;
+            g_last_origin[id] = current_origin;
+        } else {
+            g_afk_time[id] += 5.0;
+        }
+        new CsTeams:team = cs_get_user_team(id);
+        if (team == CS_TEAM_T || team == CS_TEAM_CT) {
+            if (g_afk_time[id] >= MAX_AFK_TIME) {
+                user_silentkill(id);
+                cs_set_user_team(id, CS_TEAM_SPECTATOR);
+                client_print_color(id, print_team_default, "^1[^4Server^1] Moved to ^3Spectators ^1(AFK).");
+                g_afk_time[id] = 0.0;
+            }
+        }
+    }
+}</div>
+        </div>
+
+        <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700 mb-6">
+            <div class="flex justify-between items-center mb-2">
+                <h3 class="text-purple-400 font-bold">4. C4 Timer HUD</h3>
+                <button class="bg-blue-600 px-3 py-1 rounded text-xs text-white" onclick="copy('codeC4')">Copy Code</button>
+            </div>
+            <div class="code-box" id="codeC4">#include &lt;amxmodx&gt;
+
+#define PLUGIN "C4 Timer"
+#define VERSION "1.0"
+#define AUTHOR "Omar_Plugins"
+
+new g_c4_timer
+
+public plugin_init() {
+    register_plugin(PLUGIN, VERSION, AUTHOR)
+    register_logevent("event_bomb_planted", 3, "2=Planted_The_Bomb")
+    register_logevent("event_bomb_defused", 3, "2=Defused_The_Bomb")
+    register_logevent("event_bomb_exploded", 6, "3=Target_Bombed")
+    register_event("HLTV", "event_new_round", "a", "1=0", "2=0")
+}
+
+public event_bomb_planted() {
+    g_c4_timer = get_cvar_num("mp_c4timer")
+    set_task(1.0, "update_timer", 8038, _, _, "b")
+}
+
+public update_timer() {
+    g_c4_timer--
+    if (g_c4_timer >= 0) {
+        set_hudmessage(255, 255, 255, -1.0, 0.8, 0, 1.0, 1.0, 0.01, 0.01, -1)
+        show_hudmessage(0, "C4 Timer: %d seconds", g_c4_timer)
+    }
+    if (g_c4_timer <= 0) remove_task(8038)
+}
+
+public event_bomb_defused() remove_task(8038)
+public event_bomb_exploded() remove_task(8038)
+public event_new_round() remove_task(8038)</div>
+        </div>
       </div>
     </div>
   </main>
 </div>
 
 <script>
-let currentLang = 'ar';
-const TELEGRAM_TOKEN = "8061885681:AAGwVrozUK7a9WprD3Dz72PhcOjMkdb5G74"; 
-const TELEGRAM_CHAT_ID = "8008974925"; 
-
-const pluginsData = [
-  { nameAr: "تصفير النتيجة (RS)", nameEn: "Reset Score", icon: "🔄", code: "#include <amxmodx>\n#include <cstrike>\n#include <fun>\n\npublic plugin_init() {\n    register_plugin(\"Reset Score\", \"1.0\", \"Omar_Taha\")\n    register_clcmd(\"say /rs\", \"cmd_rs\")\n}\n\npublic cmd_rs(id) {\n    set_user_frags(id, 0)\n    cs_set_user_deaths(id, 0)\n    client_print(id, print_chat, \"Score Reset!\")\n    return PLUGIN_HANDLED\n}" },
-  { nameAr: "القفزة المزدوجة", nameEn: "Multi Jump", icon: "🚀", code: "#include <amxmodx>\n#include <engine>\n\nnew jumpnum[33]\n\npublic plugin_init() {\n    register_plugin(\"MultiJump\", \"1.1\", \"Omar_Taha\")\n}\n\npublic client_PreThink(id) {\n    new nbut = get_user_button(id)\n    new obut = get_user_oldbutton(id)\n    if((nbut & IN_JUMP) && !(obut & IN_JUMP)) {\n        if(!(entity_get_int(id, EV_INT_flags) & FL_ONGROUND)) {\n            if(jumpnum[id] < 1) {\n                jumpnum[id]++\n                new Float:veclocity[3]\n                entity_get_vector(id, EV_VEC_velocity, veclocity)\n                veclocity[2] = 265.0\n                entity_set_vector(id, EV_VEC_velocity, veclocity)\n            }\n        }\n        else jumpnum[id] = 0\n    }\n}" },
-  { nameAr: "أمر الصحة /hp", nameEn: "Health Command", icon: "⚡", code: "#include <amxmodx>\n#include <fun>\n\npublic plugin_init() {\n    register_clcmd(\"say /hp\", \"give_hp\")\n}\n\npublic give_hp(id) {\n    set_user_health(id, 100)\n    client_print(id, print_chat, \"Your HP is now 100!\")\n}" },
-  { nameAr: "المظلة بالزر E", nameEn: "Parachute", icon: "🎈", code: "#include <amxmodx>\n#include <engine>\n\npublic client_PreThink(id) {\n    if(get_user_button(id) & IN_USE) {\n        new Float:velocity[3]\n        entity_get_vector(id, EV_VEC_velocity, velocity)\n        if(velocity[2] < -100.0) {\n            velocity[2] = -100.0\n            entity_set_vector(id, EV_VEC_velocity, velocity)\n        }\n    }\n}" },
-  { nameAr: "علامة VIP", nameEn: "Admin VIP Tag", icon: "⭐", code: "#include <amxmodx>\n\npublic plugin_init() {\n    register_message(get_user_msgid(\"ScoreAttrib\"), \"MessageScoreAttrib\")\n}\n\npublic MessageScoreAttrib(iMsgId, iMsgDest, iReceiver) {\n    new id = get_msg_arg_int(1)\n    if(get_user_flags(id) & ADMIN_RESERVATION)\n        set_msg_arg_int(2, ARG_BYTE, (1<<2))\n}" },
-  { nameAr: "أصوات الفوز", nameEn: "Round Sounds", icon: "🎵", code: "#include <amxmodx>\n\npublic plugin_init() {\n    register_event(\"SendAudio\", \"t_win\", \"a\", \"2=%!MRAD_terwin\")\n    register_event(\"SendAudio\", \"ct_win\", \"a\", \"2=%!MRAD_ctwin\")\n}\n\npublic t_win() client_cmd(0, \"spk misc/t_win_sound.wav\")\npublic ct_win() client_cmd(0, \"spk misc/ct_win_sound.wav\")" },
-  { nameAr: "حماية الشات", nameEn: "Chat Guard", icon: "🚫", code: "#include <amxmodx>\n\nnew const BANNED_WORDS[][] = { \"badword1\", \"badword2\" }\n\npublic plugin_init() {\n    register_clcmd(\"say\", \"check_chat\")\n}\n\npublic check_chat(id) {\n    new txt[192]\n    read_args(txt, 191)\n    for(new i=0; i < sizeof BANNED_WORDS; i++) {\n        if(containi(txt, BANNED_WORDS[i]) != -1) return PLUGIN_HANDLED\n    }\n    return PLUGIN_CONTINUE\n}" },
-  { nameAr: "عرض الضرر HUD", nameEn: "Damage HUD", icon: "💥", code: "#include <amxmodx>\n\npublic plugin_init() {\n    register_event(\"Damage\", \"on_damage\", \"b\", \"2!0\", \"3=0\", \"4!0\")\n}\n\npublic on_damage(id) {\n    new attacker = get_user_attacker(id)\n    new damage = read_data(2)\n    set_hudmessage(255, 0, 0, 0.45, 0.50, 0, 0.1, 1.0, 0.1, 0.1, -1)\n    show_hudmessage(attacker, \"%d\", damage)\n}" },
-  { nameAr: "تتبع القنابل", nameEn: "Nade Trails", icon: "🌈", code: "// Nade Trails Plugin Logic\n#include <amxmodx>\n// Complete code for trails..." },
-  { nameAr: "دخول تلقائي", nameEn: "Auto Join", icon: "👥", code: "// Auto Join Logic" },
-  { nameAr: "طرد المتأخرين", nameEn: "Anti-Lag", icon: "🛡️", code: "// Anti Lag Logic" },
-  { nameAr: "قتل بالسكين", nameEn: "Knife Kill", icon: "🔪", code: "// Knife Alert Logic" },
-  { nameAr: "تنبيه القنبلة", nameEn: "Bomb Alert", icon: "💣", code: "// Bomb Alert Logic" },
-  { nameAr: "رسالة ترحيب", nameEn: "Welcome Msg", icon: "🎨", code: "// Welcome HUD Logic" },
-  { nameAr: "إعلانات الشات", nameEn: "Auto Ads", icon: "🕒", code: "// Ads Scheduler Logic" },
-  { nameAr: "إصدار السيرفر", nameEn: "Server Version", icon: "📡", code: "// Version Checker" }
-];
-
-function render(filter = "") {
-    const home = document.getElementById('page-home');
-    const menu = document.getElementById('sidebarMenu');
-    home.innerHTML = ''; menu.innerHTML = '';
-    pluginsData.forEach((p, i) => {
-        const name = currentLang === 'ar' ? p.nameAr : p.nameEn;
-        if(!name.toLowerCase().includes(filter.toLowerCase())) return;
-        const id = 'p' + i;
-        menu.innerHTML += `<li onclick="document.getElementById('${id}').scrollIntoView({behavior:'smooth'})">${p.icon} ${name}</li>`;
-        home.innerHTML += `
-            <div class="card" id="${id}">
-                <div class="flex justify-between items-center mb-2">
-                    <h3 class="font-bold text-white">${p.icon} ${name}</h3>
-                    <button class="bg-purple-600 px-3 py-1 rounded text-xs text-white" onclick="copy('code${i}')">نسخ الكود</button>
-                </div>
-                <div class="code-box" id="code${i}">${p.code}</div>
-            </div>`;
-    });
+function showPage(p) {
+  ['home', 'plugins', 'colors', 'admin', 'request', 'support'].forEach(id => {
+    const el = document.getElementById('page-'+id);
+    if(el) el.classList.toggle('hidden', p !== id);
+    const btn = document.getElementById('btn-'+id);
+    if(btn) btn.classList.toggle('active', p === id);
+  });
 }
 
-function sendToTelegram(btn) {
-    const ip = document.getElementById('srvIP').value;
-    const idea = document.getElementById('srvIdea').value;
-    if(!ip || !idea) return;
-    btn.innerText = "...";
-    const msg = `🚀 طلب جديد يا عمر!\n🌐 IP: ${ip}\n💡 Idea: ${idea}`;
-    fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(msg)}`)
-    .then(() => { showToast("وصل الطلب!"); btn.innerText = "إرسال"; });
+function copy(id) { 
+  navigator.clipboard.writeText(document.getElementById(id).innerText); 
+  showToast("✅ Copied!"); 
 }
 
-function showPage(pageId) {
-    document.getElementById('page-home').classList.toggle('hidden', pageId !== 'home');
-    document.getElementById('page-request').classList.toggle('hidden', pageId !== 'request');
-    document.getElementById('sidebar-extra').classList.toggle('hidden', pageId !== 'home');
-    document.getElementById('btn-home').classList.toggle('active', pageId === 'home');
-    document.getElementById('btn-request').classList.toggle('active', pageId === 'request');
+function showToast(m) {
+  const t = document.createElement('div'); t.className = 'toast'; t.innerText = m;
+  document.getElementById('toast-container').appendChild(t); setTimeout(() => t.remove(), 2500);
 }
 
-function copy(id) {
-    navigator.clipboard.writeText(document.getElementById(id).innerText);
-    showToast("تم النسخ!");
-}
-
-function showToast(msg) {
-    const t = document.createElement('div');
-    t.className = 'toast'; t.innerText = msg;
-    document.getElementById('toast-container').appendChild(t);
-    setTimeout(() => t.remove(), 3000);
-}
-
-function toggleLang() {
-    currentLang = currentLang === 'ar' ? 'en' : 'ar';
-    document.getElementById('htmlTag').dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-    render();
-}
-
-function toggleCyber() {
-    document.getElementById('bodyTag').classList.toggle('cyber-mode');
-    initParticles();
-}
-
-function updateScrollProgress() {
-    const main = document.getElementById('mainContent');
-    const scrollPercent = (main.scrollTop / (main.scrollHeight - main.clientHeight)) * 100;
-    document.getElementById('progress-bar').style.width = scrollPercent + "%";
-}
-
-function filterPlugins() { render(document.getElementById('searchInput').value); }
-
-function initParticles() {
-    const color = document.getElementById('bodyTag').classList.contains('cyber-mode') ? "#d946ef" : "#8b5cf6";
-    particlesJS('particles-js', { "particles": { "number": { "value": 60 }, "color": { "value": color }, "line_linked": { "color": color } } });
-}
-
-render();
-initParticles();
+function toggleCyber() { document.getElementById('bodyTag').classList.toggle('cyber-mode'); }
+particlesJS('particles-js', {"particles":{"number":{"value":40},"color":{"value":"#8b5cf6"},"line_linked":{"opacity":0.2}}});
 </script>
 </body>
 </html>
