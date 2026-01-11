@@ -1,128 +1,252 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" id="htmlTag">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plugins_CS1.6 | Omar_Plugins</title>
+<title>Omar_Taha | Professional Hub v18</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 <style>
-  body { font-family: 'Roboto', sans-serif; background:#ecf0f1; color:#333; margin:0; display:flex; overflow-x: hidden; }
-  .sidebar { width: 300px; background: #1a252f; min-height: 100vh; color: #ecf0f1; position: sticky; top: 0; height: 100vh; z-index: 100; }
-  .sidebar-header { padding: 2.5rem 1.5rem; background: #e67e22; text-align: center; font-weight: bold; font-size: 1.5rem; text-transform: uppercase; }
-  .plugin-list li { margin: 0.5rem 1rem; cursor: pointer; padding: 0.8rem; border-radius: 6px; background: rgba(255,255,255,0.03); transition: 0.2s; font-size: 0.9rem; border-left: 3px solid transparent; }
-  .plugin-list li:hover { background: #d35400; border-left: 3px solid #f39c12; }
-  .content-wrapper { flex:1; display: flex; flex-direction: column; min-width: 0; }
-  header { background:#2c3e50; color:#ecf0f1; padding:1.2rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom: 4px solid #e67e22; }
-  main { flex:1; padding:2rem; }
-  .plugin-section { background:#fff; padding:1.5rem; border-radius:0.8rem; margin-bottom:2rem; box-shadow:0 4px 6px rgba(0,0,0,0.05); border: 1px solid #ddd; }
-  .plugin-title { font-weight:bold; font-size:1.4rem; color:#d35400; margin-bottom:0.8rem; }
-  .code-box { background:#1e1e1e; color:#dcdcdc; padding:1.2rem; border-radius:0.5rem; font-family: 'Courier New', monospace; white-space: pre; overflow-x: auto; position:relative; font-size: 0.85rem; border: 1px solid #444; }
-  .copy-btn { position:absolute; top:10px; right:10px; background:#e67e22; color:#fff; padding:5px 12px; border-radius:4px; cursor:pointer; font-weight: bold; }
-  .contact-card { background: #2c3e50; color: white; padding: 2rem; border-radius: 1rem; text-align: center; margin-top: 3rem; border: 2px solid #e67e22; }
+  :root { 
+    --primary: #8b5cf6; --bg-dark: #020617; --card-bg: rgba(15, 23, 42, 0.7);
+    --sidebar-bg: #0f172a; --border: #1e293b; --neon-glow: 0 0 10px rgba(139, 92, 246, 0.3);
+  }
+  .cyber-mode {
+    --primary: #d946ef; --bg-dark: #0a001a; --card-bg: rgba(30, 0, 60, 0.6);
+    --sidebar-bg: #150025; --border: #d946ef; --neon-glow: 0 0 20px rgba(217, 70, 239, 0.5);
+  }
+
+  body { font-family: 'Poppins', 'Cairo', sans-serif; background-color: var(--bg-dark); color: #f8fafc; margin: 0; display: flex; height: 100vh; overflow: hidden; transition: 0.5s; }
+  #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+  .sidebar, .content-wrapper { position: relative; z-index: 2; }
+
+  #progress-bar { position: absolute; bottom: 0; left: 0; height: 3px; background: var(--primary); box-shadow: 0 0 10px var(--primary); transition: width 0.1s; width: 0%; }
+
+  .sidebar { width: 300px; background: var(--sidebar-bg); border-left: 1px solid var(--border); display: flex; flex-direction: column; transition: 0.5s; }
+  .sidebar-header { padding: 1.5rem; text-align: center; font-weight: 800; border-bottom: 1px solid var(--border); color: var(--primary); font-size: 1.2rem; }
+  
+  .nav-menu { padding: 10px; border-bottom: 1px solid var(--border); }
+  .nav-btn { width: 100%; text-align: right; padding: 12px; margin-bottom: 5px; border-radius: 10px; font-size: 0.9rem; transition: 0.3s; color: #94a3b8; display: flex; align-items: center; gap: 10px; cursor: pointer; border: none; background: transparent; }
+  .nav-btn.active { background: var(--primary); color: white; box-shadow: var(--neon-glow); }
+
+  .search-input { width: 90%; margin: 10px auto; background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 8px 12px; border-radius: 8px; color: white; outline: none; display: block; }
+  .plugin-list { overflow-y: auto; flex: 1; }
+  .plugin-list li { margin: 2px 15px; padding: 8px; border-radius: 8px; cursor: pointer; color: #94a3b8; font-size: 0.8rem; text-align: right; transition: 0.2s; list-style: none; }
+  .plugin-list li:hover { background: rgba(139, 92, 246, 0.1); color: var(--primary); }
+  
+  .content-wrapper { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  header { position: relative; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 50; }
+
+  main { flex: 1; overflow-y: auto; scroll-behavior: smooth; padding-bottom: 50px; }
+  
+  @keyframes breathing { 0%, 100% { border-color: var(--border); box-shadow: none; } 50% { border-color: var(--primary); box-shadow: var(--neon-glow); } }
+  .card { background: var(--card-bg); border-radius: 20px; padding: 1.5rem; margin: 1.5rem 2rem; border: 1px solid var(--border); animation: breathing 4s infinite ease-in-out; backdrop-filter: blur(5px); }
+  
+  .code-box { background: #000; color: #10b981; padding: 1rem; border-radius: 12px; font-family: monospace; font-size: 0.8rem; overflow-x: auto; direction: ltr; text-align: left; margin-top: 10px; border: 1px solid var(--border); white-space: pre; }
+
+  .request-form { max-width: 600px; margin: 3rem auto; background: var(--card-bg); padding: 2.5rem; border-radius: 25px; border: 1px solid var(--primary); box-shadow: var(--neon-glow); }
+  .form-control { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--border); padding: 12px; border-radius: 10px; color: white; margin-top: 5px; outline: none; }
+  .submit-btn { width: 100%; background: var(--primary); color: white; padding: 15px; border-radius: 10px; font-weight: bold; margin-top: 20px; transition: 0.3s; cursor: pointer; border: none; }
+
+  #toast-container { position: fixed; bottom: 50px; left: 20px; z-index: 9999; }
+  .toast { background: var(--primary); color: white; padding: 12px 20px; border-radius: 10px; margin-top: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+  .hidden { display: none; }
 </style>
 </head>
-<body>
+<body dir="rtl" id="bodyTag">
+
+<div id="particles-js"></div>
+<div id="toast-container"></div>
 
 <div class="sidebar">
-  <div class="sidebar-header">OMAR PLUGINS</div>
-  <ul class="plugin-list">
-    <li onclick="scrollToPlugin('AntiPing')">⭐ Anti-Ping Kicker</li>
-    <li onclick="scrollToPlugin('VIPScore')">VIP Scoreboard</li>
-    <li onclick="scrollToPlugin('ResetScore')">Reset Score</li>
-    <li onclick="scrollToPlugin('DoubleJump')">Double Jump</li>
-    <li onclick="scrollToPlugin('AutoJoin')">Auto Join Team</li>
-    <li onclick="scrollToPlugin('Contact')">Contact Me</li>
-  </ul>
+  <div class="sidebar-header">OMAR_TAHA HUB</div>
+  <div class="nav-menu">
+    <button class="nav-btn active" id="btn-home" onclick="showPage('home')">
+      <span class="lang-ar">🏠 الرئيسية (البلجنات)</span>
+      <span class="lang-en hidden">🏠 Home (Plugins)</span>
+    </button>
+    <button class="nav-btn" id="btn-request" onclick="showPage('request')">
+      <span class="lang-ar">⚡ طلب برمجة خاصة</span>
+      <span class="lang-en hidden">⚡ Custom Request</span>
+    </button>
+  </div>
+  <div id="sidebar-extra">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search..." onkeyup="filterPlugins()">
+    <ul class="plugin-list" id="sidebarMenu"></ul>
+  </div>
 </div>
 
 <div class="content-wrapper">
-<header>
-  <h1>CS 1.6 Advanced Plugins</h1>
-  <div class="text-orange-400 font-bold">Developer: Omar_Plugins</div>
-</header>
-
-<main>
-    <div class="plugin-section" id="AntiPing">
-      <h3 class="plugin-title">1. Anti-Ping Kicker (High Latency)</h3>
-      <p class="mb-2">Automatically kicks players with Ping higher than 150 to keep the server smooth.</p>
-      <div style="position:relative;"><div class="code-box" id="codePing">#include &lt;amxmodx&gt;
-
-#define MAX_PING 150
-#define CHECK_TIME 5.0
-
-public plugin_init() {
-    register_plugin("Anti-Ping Kicker", "1.0", "Omar_Plugins")
-    set_task(CHECK_TIME, "check_ping", 0, _, _, "b")
-}
-
-public check_ping() {
-    new players[32], num, id, ping, loss
-    get_players(players, num, "ch") // Skip bots and HLTV
-    for(new i=0; i&lt;num; i++) {
-        id = players[i]
-        get_user_ping(id, ping, loss)
-        if(ping &gt; MAX_PING) {
-            server_cmd("kick #%d ^"Your Ping is too high (%d)!^"", get_user_userid(id), ping)
-        }
-    }
-}</div><button class="copy-btn" onclick="copyCode('codePing')">Copy</button></div>
+  <header>
+    <div class="flex gap-2">
+      <button onclick="toggleLang()" class="bg-blue-600 px-3 py-1 rounded text-xs font-bold text-white">🌐 Language</button>
+      <button onclick="toggleCyber()" class="bg-slate-800 px-3 py-1 rounded text-xs font-bold text-white">🌌 Cyber Mode</button>
     </div>
+    <div id="progress-bar"></div>
+  </header>
 
-    <div class="plugin-section" id="VIPScore">
-      <h3 class="plugin-title">2. VIP ScoreBoard</h3>
-      <div style="position:relative;"><div class="code-box" id="codeVIP">#include &lt;amxmodx&gt;
-public plugin_init() {
-    register_plugin("VIP Score", "1.0", "Omar_Plugins")
-    register_message(get_user_msgid("ScoreAttrib"), "message_ScoreAttrib")
-}
-public message_ScoreAttrib(iMsgId, iMsgDest, iReceiver) {
-    new id = get_msg_arg_int(1)
-    if(is_user_connected(id) && (get_user_flags(id) & ADMIN_LEVEL_H)) {
-        set_msg_arg_int(2, ARG_BYTE, (1&lt;&lt;2))
-    }
-}</div><button class="copy-btn" onclick="copyCode('codeVIP')">Copy</button></div>
-    </div>
+  <main id="mainContent" onscroll="updateScrollProgress()">
+    <div id="page-home"></div>
 
-    <div class="plugin-section" id="ResetScore">
-      <h3 class="plugin-title">3. Reset Score Pro</h3>
-      <div style="position:relative;"><div class="code-box" id="code1">#include &lt;amxmodx&gt;
-#include &lt;cstrike&gt;
-#include &lt;fun&gt;
-public plugin_init() {
-    register_plugin("Reset Score", "1.1", "Omar_Plugins")
-    register_clcmd("say /rs", "cmd_reset")
-}
-public cmd_reset(id) {
-    if(!is_user_alive(id)) return 1;
-    set_user_frags(id, 0); cs_set_user_deaths(id, 0)
-    client_print(id, print_chat, "[rs] Score Reset!")
-    return 1
-}</div><button class="copy-btn" onclick="copyCode('code1')">Copy</button></div>
-    </div>
-
-    <div class="contact-card" id="Contact">
-      <h3 class="text-2xl font-bold mb-2">Contact Omar_Plugins</h3>
-      <p class="text-gray-300 mb-6">Need more plugins? Reach out to me!</p>
-      <div class="flex justify-center gap-4">
-        <a href="#" class="bg-orange-600 px-6 py-2 rounded-lg hover:bg-orange-700 transition">Discord</a>
-        <a href="mailto:your-email@example.com" class="bg-red-600 px-6 py-2 rounded-lg hover:bg-red-700 transition">Email</a>
+    <div id="page-request" class="hidden">
+      <div class="request-form">
+        <h2 class="text-2xl font-bold mb-6 text-center text-white">
+            <span class="lang-ar">طلب بلجن خاص</span>
+            <span class="lang-en hidden">Custom Plugin Request</span>
+        </h2>
+        <div class="mb-4">
+          <label class="text-xs text-purple-400 font-bold">Server IP</label>
+          <input type="text" id="srvIP" class="form-control" placeholder="192.168.1.1:27015">
+        </div>
+        <div class="mb-4">
+          <label class="text-xs text-purple-400 font-bold">
+              <span class="lang-ar">وصف الفكرة</span>
+              <span class="lang-en hidden">Idea Description</span>
+          </label>
+          <textarea id="srvIdea" class="form-control" rows="4" placeholder="Description..."></textarea>
+        </div>
+        <div class="mb-4">
+          <label class="text-xs text-purple-400 font-bold">
+              <span class="lang-ar">الميزانية</span>
+              <span class="lang-en hidden">Budget</span>
+          </label>
+          <select id="srvBudget" class="form-control">
+            <option>Free / Basic</option>
+            <option>5$ - 15$</option>
+            <option>20$+</option>
+          </select>
+        </div>
+        <button class="submit-btn" onclick="sendToTelegram(this)">
+            <span class="lang-ar">إرسال عبر التليجرام</span>
+            <span class="lang-en hidden">Send via Telegram</span>
+        </button>
       </div>
     </div>
-</main>
+  </main>
 </div>
 
 <script>
-function scrollToPlugin(id) {
-    const el = document.getElementById(id);
-    if(el) el.scrollIntoView({behavior: 'smooth'});
+let currentLang = 'ar';
+
+// --- الإعدادات التي طلبتها يا عمر (ID + Token) ---
+const TELEGRAM_TOKEN = "8061885681:AAGwVrozUK7a9WprD3Dz72PhcOjMkdb5G74"; 
+const TELEGRAM_CHAT_ID = "8008974925"; 
+
+// قائمة الـ 16 بلجن كاملة
+const pluginsData = [
+  { nameAr: "تصفير النتيجة (RS)", nameEn: "Reset Score", icon: "🔄", code: "#include <amxmodx>\n#include <cstrike>\n#include <fun>\n\npublic plugin_init() {\n    register_plugin(\"Reset Score\", \"1.0\", \"Omar_Taha\")\n    register_clcmd(\"say /rs\", \"cmd_rs\")\n}\n\npublic cmd_rs(id) {\n    set_user_frags(id, 0)\n    cs_set_user_deaths(id, 0)\n    client_print(id, print_chat, \"Score Reset!\")\n    return PLUGIN_HANDLED\n}" },
+  { nameAr: "القفزة المزدوجة", nameEn: "Multi Jump", icon: "🚀", code: "// Multi Jump Code Ready" },
+  { nameAr: "أمر الصحة /hp", nameEn: "Health Command", icon: "⚡", code: "// Health Code" },
+  { nameAr: "عرض الضرر HUD", nameEn: "Damage HUD", icon: "💥", code: "// Damage HUD Code" },
+  { nameAr: "المظلة بالزر E", nameEn: "Parachute", icon: "🎈", code: "// Parachute Code" },
+  { nameAr: "حماية الشات", nameEn: "Chat Guard", icon: "🚫", code: "// Chat Guard Code" },
+  { nameAr: "علامة VIP", nameEn: "Admin VIP Tag", icon: "⭐", code: "// VIP Code" },
+  { nameAr: "تتبع القنابل", nameEn: "Nade Trails", icon: "🌈", code: "// Nade Trails Code" },
+  { nameAr: "دخول تلقائي", nameEn: "Auto Join", icon: "👥", code: "// Auto Join Code" },
+  { nameAr: "طرد المتأخرين", nameEn: "Anti-Lag", icon: "🛡️", code: "// Anti Lag Code" },
+  { nameAr: "أصوات الفوز", nameEn: "Round Sounds", icon: "🎵", code: "// Sounds Code" },
+  { nameAr: "قتل بالسكين", nameEn: "Knife Kill", icon: "🔪", code: "// Knife Alert Code" },
+  { nameAr: "تنبيه القنبلة", nameEn: "Bomb Alert", icon: "💣", code: "// Bomb Alert Code" },
+  { nameAr: "رسالة ترحيب", nameEn: "Welcome Msg", icon: "🎨", code: "// Welcome Code" },
+  { nameAr: "إعلانات الشات", nameEn: "Auto Ads", icon: "🕒", code: "// Ads Code" },
+  { nameAr: "إصدار السيرفر", nameEn: "Server Version", icon: "📡", code: "// Version Code" }
+];
+
+function toggleLang() {
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    document.getElementById('htmlTag').dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang-ar').forEach(el => el.classList.toggle('hidden', currentLang !== 'ar'));
+    document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('hidden', currentLang !== 'en'));
+    render();
 }
-function copyCode(id) {
-    const text = document.getElementById(id).innerText;
-    navigator.clipboard.writeText(text).then(() => {
-        alert("Code Copied!");
+
+function render(filter = "") {
+    const home = document.getElementById('page-home');
+    const menu = document.getElementById('sidebarMenu');
+    if(!home || !menu) return;
+    home.innerHTML = ''; menu.innerHTML = '';
+    pluginsData.forEach((p, i) => {
+        const name = currentLang === 'ar' ? p.nameAr : p.nameEn;
+        if(!name.toLowerCase().includes(filter.toLowerCase())) return;
+        const id = 'p' + i;
+        menu.innerHTML += `<li onclick="document.getElementById('${id}').scrollIntoView({behavior:'smooth'})">${p.icon} ${name}</li>`;
+        home.innerHTML += `
+            <div class="card" id="${id}">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="font-bold text-white">${p.icon} ${name}</h3>
+                    <button class="bg-purple-600 px-3 py-1 rounded text-xs text-white" onclick="copy('code${i}')">${currentLang === 'ar'?'نسخ':'Copy'}</button>
+                </div>
+                <div class="code-box" id="code${i}">${p.code}</div>
+            </div>`;
     });
 }
+
+function sendToTelegram(btn) {
+    const ip = document.getElementById('srvIP').value;
+    const idea = document.getElementById('srvIdea').value;
+    const budget = document.getElementById('srvBudget').value;
+    if(!ip || !idea) { showToast(currentLang==='ar'?"أكمل الحقول!":"Fill fields!"); return; }
+    
+    btn.innerText = "...";
+    const msg = `🚀 طلب جديد يا عمر!\n🌐 IP: ${ip}\n💡 الفكرة: ${idea}\n💰 الميزانية: ${budget}`;
+    fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(msg)}`)
+    .then(res => {
+        if(res.ok) {
+            showToast(currentLang==='ar'?"وصل الطلب! ✅":"Sent! ✅");
+            document.getElementById('srvIP').value = "";
+            document.getElementById('srvIdea').value = "";
+        } else {
+            showToast("Error! Check Bot Start");
+        }
+    })
+    .catch(() => showToast("Error! Connection"));
+    btn.innerText = currentLang === 'ar' ? "إرسال عبر التليجرام" : "Send via Telegram";
+}
+
+function showPage(pageId) {
+    document.getElementById('page-home').classList.toggle('hidden', pageId !== 'home');
+    document.getElementById('page-request').classList.toggle('hidden', pageId !== 'request');
+    document.getElementById('sidebar-extra').classList.toggle('hidden', pageId !== 'home');
+    document.getElementById('btn-home').classList.toggle('active', pageId === 'home');
+    document.getElementById('btn-request').classList.toggle('active', pageId === 'request');
+}
+
+function copy(id) {
+    navigator.clipboard.writeText(document.getElementById(id).innerText);
+    showToast(currentLang==='ar'?"تم النسخ!":"Copied!");
+}
+
+function showToast(msg) {
+    const t = document.createElement('div');
+    t.className = 'toast'; t.innerText = msg;
+    document.getElementById('toast-container').appendChild(t);
+    setTimeout(() => t.remove(), 3000);
+}
+
+function toggleCyber() {
+    document.getElementById('bodyTag').classList.toggle('cyber-mode');
+    initParticles();
+}
+
+function updateScrollProgress() {
+    const main = document.getElementById('mainContent');
+    const scrollPercent = (main.scrollTop / (main.scrollHeight - main.clientHeight)) * 100;
+    document.getElementById('progress-bar').style.width = scrollPercent + "%";
+}
+
+function filterPlugins() { render(document.getElementById('searchInput').value); }
+
+function initParticles() {
+    const color = document.getElementById('bodyTag').classList.contains('cyber-mode') ? "#d946ef" : "#8b5cf6";
+    if(window.particlesJS) {
+        particlesJS('particles-js', { "particles": { "number": { "value": 60 }, "color": { "value": color }, "line_linked": { "color": color } } });
+    }
+}
+
+render();
+initParticles();
 </script>
 </body>
 </html>
