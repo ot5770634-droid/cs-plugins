@@ -1,247 +1,285 @@
 <!DOCTYPE html>
-<html lang="ar" id="htmlTag">
+<html lang="ar" id="htmlTag" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omar_Taha | Professional Hub v4.0</title>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omar_Taha | Platinum Hub v13.0</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-    <style>
-        :root { --primary: #8b5cf6; --bg-dark: #020617; --card-bg: rgba(15, 23, 42, 0.7); --sidebar-bg: #0f172a; --border: #1e293b; --neon-glow: 0 0 10px rgba(139, 92, 246, 0.3); }
-        .cyber-mode { --primary: #d946ef; --bg-dark: #0a001a; --card-bg: rgba(30, 0, 60, 0.6); --sidebar-bg: #150025; --border: #d946ef; --neon-glow: 0 0 20px rgba(217, 70, 239, 0.5); }
-        body { font-family: 'Poppins', 'Cairo', sans-serif; background-color: var(--bg-dark); color: #f8fafc; margin: 0; display: flex; height: 100vh; overflow: hidden; transition: 0.5s; }
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
-        .sidebar, .content-wrapper { position: relative; z-index: 2; }
-        .sidebar { width: 280px; background: var(--sidebar-bg); border-left: 1px solid var(--border); display: flex; flex-direction: column; transition: 0.3s; }
-        .sidebar-header { padding: 1.5rem; text-align: center; font-weight: 800; border-bottom: 1px solid var(--border); color: var(--primary); font-size: 1.2rem; }
-        .nav-menu { padding: 10px; flex: 1; overflow-y: auto; }
-        .nav-btn { width: 100%; text-align: right; padding: 12px; margin-bottom: 8px; border-radius: 12px; font-size: 0.95rem; transition: 0.3s; color: #94a3b8; display: flex; align-items: center; gap: 12px; cursor: pointer; border: 1px solid transparent; background: transparent; }
-        .nav-btn:hover { background: rgba(139, 92, 246, 0.1); color: white; }
-        .nav-btn.active { background: var(--primary); color: white; box-shadow: var(--neon-glow); border-color: var(--primary); }
-        .content-wrapper { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
-        header { position: relative; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 50; }
-        main { flex: 1; overflow-y: auto; scroll-behavior: smooth; padding: 2rem; }
-        .request-form { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 2rem; border-radius: 25px; border: 1px solid var(--border); backdrop-filter: blur(10px); }
-        .form-control { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--border); padding: 14px; border-radius: 12px; color: white; margin-top: 8px; outline: none; transition: 0.3s; }
-        .form-control:focus { border-color: var(--primary); }
-        .flag-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); gap: 8px; margin: 15px 0; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px; }
-        .flag-item { font-size: 11px; display: flex; align-items: center; gap: 5px; color: #cbd5e1; cursor: pointer; }
-        .submit-btn { width: 100%; background: var(--primary); color: white; padding: 15px; border-radius: 12px; font-weight: bold; margin-top: 20px; cursor: pointer; border: none; transition: 0.3s; }
-        .code-box { background: #000; color: #10b981; padding: 1.2rem; border-radius: 12px; font-family: monospace; font-size: 0.85rem; text-align: left; direction: ltr; margin-top: 15px; border: 1px solid var(--border); white-space: pre; overflow-x: auto; max-height: 400px; }
-        .hidden { display: none !important; }
-        #toast-container { position: fixed; bottom: 30px; left: 30px; z-index: 9999; }
-        .toast { background: var(--primary); color: white; padding: 12px 24px; border-radius: 12px; margin-top: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-    </style>
+<style>
+  :root { 
+    --primary: #D4AF37; 
+    --bg-dark: #050505; 
+    --card-bg: rgba(15, 23, 42, 0.4); 
+    --sidebar-bg: #000000; 
+    --glow: rgba(212, 175, 55, 0.4);
+  }
+
+  body.magic-theme {
+    --primary: #00f2ff;
+    --bg-dark: #020617;
+    --card-bg: rgba(30, 41, 59, 0.5);
+    --sidebar-bg: #0f172a;
+    --glow: rgba(0, 242, 255, 0.5);
+  }
+  
+  body { font-family: 'Poppins', 'Cairo', sans-serif; background-color: var(--bg-dark); color: #f8fafc; transition: all 0.5s ease; overflow: hidden; }
+  
+  #video-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; opacity: 0.3; }
+  #video-bg video { min-width: 100%; min-height: 100%; object-fit: cover; }
+
+  #particles-js { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+  .glass { background: var(--card-bg); backdrop-filter: blur(12px); border: 1px solid var(--glow); transition: 0.5s; }
+  .sidebar { width: 260px; z-index: 10; border-left: 1px solid var(--glow); background: var(--sidebar-bg); transition: 0.5s; }
+  
+  .code-box { font-family: 'Roboto Mono', monospace; background: #000; color: var(--primary); direction: ltr; text-align: left; white-space: pre; overflow-x: auto; border-radius: 12px; border: 1px solid #1e293b; font-size: 13px; }
+  
+  .nav-btn.active { background: var(--primary); color: black; font-weight: bold; box-shadow: 0 0 20px var(--glow); }
+  .nav-btn:hover:not(.active) { background: rgba(255, 255, 255, 0.05); color: var(--primary); }
+
+  .gold-text { color: var(--primary); font-weight: bold; text-shadow: 0 0 10px var(--glow); transition: 0.5s; }
+  .hidden { display: none; }
+  
+  .magic-btn { position: relative; overflow: hidden; background: linear-gradient(45deg, #D4AF37, #f3e5ab); color: black; transition: 0.3s; }
+  body.magic-theme .magic-btn { background: linear-gradient(45deg, #00f2ff, #70faff); }
+
+  #toast-container { position: fixed; bottom: 20px; left: 20px; z-index: 9999; }
+  .toast { background: var(--primary); color: black; padding: 12px 25px; border-radius: 10px; margin-top: 10px; font-weight: bold; animation: slideIn 0.3s ease; }
+  @keyframes slideIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+  
+  main { position: relative; z-index: 2; }
+</style>
 </head>
-<body dir="rtl" id="bodyTag">
+<body class="flex h-screen">
+
+<div id="video-bg">
+    <video autoplay muted loop playsinline>
+        <source src="https://firebasestorage.googleapis.com/v0/b/veo-production-public-internal/o/vids%2F6782ce4770e06000028e378c%2F0.mp4?alt=media&token=86790924-42f0-466d-88b6-98846c243a85" type="video/mp4">
+    </video>
+</div>
 
 <div id="particles-js"></div>
 <div id="toast-container"></div>
 
-<div class="sidebar">
-    <div class="sidebar-header">OMAR_TAHA HUB</div>
-    <div class="nav-menu">
-        <button class="nav-btn active" id="btn-home" onclick="showPage('home')">🏠 الرئيسية</button>
-        <button class="nav-btn" id="btn-plugins" onclick="showPage('plugins')">📦 البلجنات</button>
-        <button class="nav-btn" id="btn-colors" onclick="showPage('colors')">🎨 مولد الألوان</button>
-        <button class="nav-btn" id="btn-admin" onclick="showPage('admin')">🎖️ صانع الرتب</button>
-        <button class="nav-btn" id="btn-request" onclick="showPage('request')">⚡ طلب برمجة</button>
-        <button class="nav-btn" id="btn-support" onclick="showPage('support')">✉️ الدعم الفني</button>
-    </div>
-</div>
+<aside class="sidebar flex flex-col">
+  <div class="p-6 text-center border-b border-white/5">
+    <h1 class="text-xl font-black gold-text uppercase tracking-tighter">Omar_Taha Hub</h1>
+  </div>
+  
+  <nav class="flex-1 p-4 space-y-1 overflow-y-auto text-sm">
+    <button onclick="showPage('home')" id="btn-home" class="nav-btn active w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">🏠 <span data-i18n="nav_home">الرئيسية</span></button>
+    <button onclick="showPage('amx')" id="btn-amx" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">📥 <span data-i18n="nav_amx">تحميل AMX MODX</span></button>
+    <button onclick="showPage('rates')" id="btn-rates" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">⚡ <span data-i18n="nav_rates">حاسبة الـ Rates</span></button>
+    <button onclick="showPage('plugins')" id="btn-plugins" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">📦 <span data-i18n="nav_plugins">البلجنات الكاملة</span></button>
+    <button onclick="showPage('admin')" id="btn-admin" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">🎖️ <span data-i18n="nav_admin">صانع الرتب</span></button>
+    <button onclick="showPage('motd')" id="btn-motd" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">🖼️ <span data-i18n="nav_motd">صانع الـ MOTD</span></button>
+    <button onclick="showPage('colors')" id="btn-colors" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">🎨 <span data-i18n="nav_colors">مولد الألوان</span></button>
+    <button onclick="showPage('request')" id="btn-request" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">💎 <span data-i18n="nav_request">طلب برمجة</span></button>
+    <button onclick="showPage('support')" id="btn-support" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">✉️ <span data-i18n="nav_support">الدعم الفني</span></button>
+  </nav>
 
-<div class="content-wrapper">
-    <header>
-        <button onclick="toggleCyber()" class="bg-slate-800 px-4 py-1.5 rounded-full text-xs font-bold text-white hover:bg-slate-700">🌌 النمط</button>
-        
-        <div id="auth-section">
-            <div id="g_id_onload"
-                 data-client_id="919801772034-lli95cs82d2m02lok3q8hp47rnj1ca4a.apps.googleusercontent.com"
-                 data-callback="handleCredentialResponse"
-                 data-auto_prompt="false">
-            </div>
-            <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_black" data-text="signin_with" data-size="medium" data-logo_alignment="left"></div>
+  <div class="p-4 border-t border-white/5 space-y-2">
+    <button onclick="toggleMagic()" class="magic-btn w-full py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest" data-i18n="btn_magic">✨ اللمسة السحرية</button>
+    <select onchange="changeLang(this.value)" class="w-full bg-black/50 border border-white/10 p-2 rounded-lg text-[10px] outline-none text-white">
+        <option value="ar">العربية</option><option value="en">English</option>
+    </select>
+  </div>
+</aside>
+
+<main class="flex-1 flex flex-col overflow-hidden">
+  <header class="h-14 glass flex items-center px-8 border-b border-white/5">
+    <input type="text" id="searchInput" oninput="search()" class="bg-transparent outline-none text-white text-sm w-full" data-i18n-placeholder="search_placeholder">
+  </header>
+
+  <div class="flex-1 overflow-y-auto p-6" id="contentArea">
+    
+    <section id="page-home" class="max-w-4xl mx-auto text-center py-10 space-y-8">
+        <h2 class="text-6xl font-black gold-text tracking-tighter uppercase">Omar_Taha Hub</h2>
+        <p class="text-gray-400" data-i18n="welcome_desc">المنصة الأقوى لبرمجة سيرفرات CS 1.6</p>
+        <div class="grid grid-cols-3 gap-4">
+            <div class="glass p-4 rounded-xl border-b-2 border-primary"><h3>13</h3><p class="text-[10px] opacity-50">Plugins</p></div>
+            <div class="glass p-4 rounded-xl border-b-2 border-primary"><h3>Full</h3><p class="text-[10px] opacity-50">Source Code</p></div>
+            <div class="glass p-4 rounded-xl border-b-2 border-primary"><h3>V13.0</h3><p class="text-[10px] opacity-50">Stable</p></div>
         </div>
-        <div id="user-info-header" class="hidden flex items-center gap-3 bg-slate-800/50 py-1 px-3 rounded-full border border-primary">
-            <span id="header-user-name" class="text-xs font-bold text-white"></span>
-            <img id="header-user-img" src="" class="w-7 h-7 rounded-full border border-primary">
-        </div>
+    </section>
 
-        <div class="text-blue-500 font-bold text-sm tracking-wider">OMAR_TAHA v4.0</div>
-    </header>
-
-    <main id="mainContent">
-        <div id="page-home" class="text-center py-20">
-            <h1 class="text-4xl font-extrabold mb-4 text-white">Hub عمر طه الاحترافي</h1>
-            <p class="text-gray-400 max-w-lg mx-auto leading-relaxed">منصتك المتكاملة لإدارة وبرمجة سيرفرات Counter-Strike 1.6.</p>
-        </div>
-
-        <div id="page-plugins" class="hidden">
-            <div class="request-form !max-w-4xl">
-                <h2 class="text-2xl font-bold mb-6 text-white text-center">📦 مكتبة البلجنات</h2>
-                <div class="code-box">#include &lt;amxmodx&gt;
-public plugin_init() {
-    register_plugin("Omar Hub", "4.0", "Omar_Taha")
-}</div>
-            </div>
-        </div>
-
-        <div id="page-admin" class="hidden">
-            <div class="request-form">
-                <h2 class="text-2xl font-bold mb-4 text-center text-white">🎖️ صانع الرتب</h2>
-                <input type="text" id="admName" class="form-control mb-2" placeholder="الاسم" oninput="generateRank()">
-                <input type="text" id="admPass" class="form-control mb-4" placeholder="الباسورد" oninput="generateRank()">
-                <div class="flag-grid" id="flag-container"></div>
-                <div class="code-box" id="rankResult">"Name" "Pass" "abcdefghijklmnopqrstu" "a"</div>
-                <button class="submit-btn" onclick="copy('rankResult')">نسخ السطر</button>
-            </div>
-        </div>
-
-        <div id="page-colors" class="hidden">
-            <div class="request-form">
-                <h2 class="text-2xl font-bold mb-6 text-white text-center">🎨 مولد ألوان الشات</h2>
-                <select id="chatColor" class="form-control mb-4" onchange="updateChatGen()">
-                    <option value="^1">أبيض ^1</option>
-                    <option value="^3">فريق ^3</option>
-                    <option value="^4">أخضر ^4</option>
-                </select>
-                <input type="text" id="chatInput" class="form-control mb-4" oninput="updateChatGen()" placeholder="اكتب رسالتك...">
-                <div class="code-box" id="chatResult">^1Your Message</div>
-                <button class="submit-btn" onclick="copy('chatResult')">نسخ الكود</button>
+    <section id="page-amx" class="hidden max-w-3xl mx-auto space-y-6">
+        <div class="glass p-8 rounded-3xl text-center space-y-4">
+            <h2 class="text-3xl font-bold gold-text" data-i18n="amx_title">تحميل AMX MODX Base</h2>
+            <p class="text-sm text-gray-400" data-i18n="amx_desc">الإصدار المستقر 1.8.2 أو التجريبي 1.9.0 لكافة أنظمة التشغيل</p>
+            <div class="grid grid-cols-2 gap-4 pt-4">
+                <a href="https://www.amxmodx.org/downloads.php" target="_blank" class="bg-primary/20 border border-primary text-white p-6 rounded-2xl hover:bg-primary hover:text-black transition">
+                    <b class="block text-xl">Windows</b>
+                    <span class="text-xs opacity-60">Installer & Files</span>
+                </a>
+                <a href="https://www.amxmodx.org/downloads.php" target="_blank" class="bg-primary/20 border border-primary text-white p-6 rounded-2xl hover:bg-primary hover:text-black transition">
+                    <b class="block text-xl">Linux / Hub</b>
+                    <span class="text-xs opacity-60">.tar.gz Archives</span>
+                </a>
             </div>
         </div>
+    </section>
 
-        <div id="page-request" class="hidden">
-            <div id="req-locked" class="request-form text-center py-10">
-                 <div class="text-5xl mb-4">🔒</div>
-                 <h2 class="text-xl font-bold text-white mb-2">القسم مقفل</h2>
-                 <p class="text-gray-400">يجب تسجيل الدخول بجوجل أولاً لتتمكن من إرسال طلب برمجة.</p>
-            </div>
-            <div id="req-unlocked" class="request-form hidden">
-                <h2 class="text-2xl font-bold mb-6 text-white text-center">⚡ طلب برمجة بلجن</h2>
-                <input type="text" id="srvIP" class="form-control mb-4" readonly>
-                <textarea id="srvIdea" class="form-control mb-4" rows="5" placeholder="اشرح فكرتك هنا..."></textarea>
-                <button class="submit-btn" onclick="sendToTelegram('طلب برمجة', 'srvIP', 'srvIdea')">إرسال الطلب</button>
-            </div>
-        </div>
+    <section id="page-rates" class="hidden max-w-2xl mx-auto glass p-8 rounded-3xl space-y-4">
+        <h2 class="text-xl font-bold text-center gold-text" data-i18n="rates_title">حاسبة الـ Rates وتحسين اللاج</h2>
+        <select id="r_speed" onchange="calcRates()" class="w-full bg-black/40 border border-slate-700 p-3 rounded-xl outline-none text-white">
+            <option value="low" data-i18n="rate_low">إنترنت ضعيف (2Mbps)</option>
+            <option value="mid" selected data-i18n="rate_mid">إنترنت متوسط (10-50Mbps)</option>
+            <option value="high" data-i18n="rate_high">ألياف بصرية (100Mbps+)</option>
+        </select>
+        <div class="code-box p-4" id="rateRes"></div>
+        <button onclick="copy('rateRes')" class="w-full bg-primary text-black py-3 rounded-xl font-bold" data-i18n="btn_copy">نسخ الإعدادات</button>
+    </section>
 
-        <div id="page-support" class="hidden">
-            <div id="sup-locked" class="request-form text-center py-10">
-                 <div class="text-5xl mb-4">🔐</div>
-                 <h2 class="text-xl font-bold text-white mb-2">الدعم الفني</h2>
-                 <p class="text-gray-400">سجل دخولك ليتمكن عمر طه من الرد عليك والتعرف على هويتك.</p>
-            </div>
-            <div id="sup-unlocked" class="request-form hidden">
-                <h2 class="text-2xl font-bold mb-6 text-white text-center">✉️ تذكرة دعم جديدة</h2>
-                <input type="text" id="supUser" class="form-control mb-4" readonly>
-                <textarea id="supMsg" class="form-control mb-4" rows="5" placeholder="اكتب مشكلتك هنا..."></textarea>
-                <button class="submit-btn" onclick="sendToTelegram('دعم فني', 'supUser', 'supMsg')">إرسال الرسالة</button>
-            </div>
-        </div>
-    </main>
-</div>
+    <section id="page-plugins" class="hidden space-y-6"></section>
+
+    <section id="page-admin" class="hidden max-w-2xl mx-auto glass p-8 rounded-3xl space-y-4">
+        <h2 class="text-xl font-bold text-center gold-text" data-i18n="admin_title">صانع الرتب</h2>
+        <input type="text" id="a_name" oninput="updateRank()" data-i18n-placeholder="ph_name" class="w-full bg-black/40 border border-slate-700 p-3 rounded-xl outline-none">
+        <input type="text" id="a_pass" oninput="updateRank()" data-i18n-placeholder="ph_pass" class="w-full bg-black/40 border border-slate-700 p-3 rounded-xl outline-none">
+        <div id="flagGrid" class="grid grid-cols-6 gap-2 text-[10px]"></div>
+        <div class="code-box p-4" id="rankRes"></div>
+        <button onclick="copy('rankRes')" class="w-full bg-primary text-black py-3 rounded-xl font-bold" data-i18n="btn_copy_short">نسخ</button>
+    </section>
+
+    <section id="page-motd" class="hidden max-w-2xl mx-auto glass p-8 rounded-3xl space-y-4">
+        <h2 class="text-xl font-bold text-center gold-text" data-i18n="nav_motd">صانع الـ MOTD</h2>
+        <input type="text" id="m_title" oninput="genMOTD()" data-i18n-placeholder="ph_server_name" class="w-full bg-black/40 border border-slate-700 p-3 rounded-xl outline-none">
+        <textarea id="m_rules" oninput="genMOTD()" rows="4" data-i18n-placeholder="ph_rules" class="w-full bg-black/40 border border-slate-700 p-3 rounded-xl outline-none"></textarea>
+        <div class="code-box p-4 h-48" id="motdRes"></div>
+        <button onclick="copy('motdRes')" class="w-full bg-primary text-black py-3 rounded-xl font-bold" data-i18n="btn_copy_code">نسخ الكود</button>
+    </section>
+
+    <section id="page-colors" class="hidden max-w-2xl mx-auto glass p-8 rounded-3xl space-y-4">
+        <h2 class="text-xl font-bold text-center gold-text" data-i18n="nav_colors">مولد ألوان الشات</h2>
+        <input type="text" id="c_text" oninput="updateColor()" data-i18n-placeholder="ph_msg" class="w-full bg-black/40 border border-slate-700 p-3 rounded-xl outline-none">
+        <div class="code-box p-4" id="colorRes">^1Message</div>
+        <button onclick="copy('colorRes')" class="w-full bg-primary text-black py-3 rounded-xl font-bold" data-i18n="btn_copy_short">نسخ</button>
+    </section>
+
+    <section id="page-request" class="hidden max-w-2xl mx-auto glass p-8 rounded-3xl space-y-4">
+        <h2 class="text-xl font-bold text-center gold-text" data-i18n="nav_request">طلب برمجة خاص</h2>
+        <input type="text" id="r_name" data-i18n-placeholder="ph_name" class="w-full bg-black/40 border border-slate-700 p-3 rounded-xl outline-none">
+        <textarea id="r_desc" rows="5" data-i18n-placeholder="ph_idea" class="w-full bg-black/40 border border-slate-700 p-3 rounded-xl outline-none"></textarea>
+        <button onclick="sendToTG('Request')" class="w-full bg-primary text-black py-3 rounded-xl font-bold" data-i18n="btn_send_request">إرسال الطلب</button>
+    </section>
+
+    <section id="page-support" class="hidden max-w-2xl mx-auto glass p-8 rounded-3xl space-y-4">
+        <h2 class="text-xl font-bold text-center gold-text" data-i18n="nav_support">الدعم الفني</h2>
+        <input type="text" id="s_name" data-i18n-placeholder="ph_name" class="w-full bg-black/40 border border-slate-700 p-3 rounded-xl outline-none">
+        <textarea id="s_msg" rows="5" data-i18n-placeholder="ph_msg_support" class="w-full bg-black/40 border border-slate-700 p-3 rounded-xl outline-none"></textarea>
+        <button onclick="sendToTG('Support')" class="w-full bg-primary text-black py-3 rounded-xl font-bold" data-i18n="btn_send_tg">إرسال تلغرام</button>
+    </section>
+
+  </div>
+</main>
 
 <script>
-const TELEGRAM_TOKEN = "8061885681:AAGwVrozUK7a9WprD3Dz72PhcOjMkdb5G74";
-const TELEGRAM_CHAT_ID = "8008974925";
+const i18n = {
+    ar: { 
+        nav_home: "الرئيسية", nav_rates: "الـ Rates", nav_plugins: "البلجنات", nav_admin: "الرتب", nav_colors: "الألوان", nav_request: "طلب برمجة", nav_support: "الدعم الفني", nav_motd: "صانع MOTD", nav_amx: "تحميل AMX MODX", 
+        search_placeholder: "ابحث...", welcome_desc: "المنصة الأقوى لبرمجة سيرفرات CS 1.6", amx_title: "تحميل AMX MODX Base", amx_desc: "الإصدار المستقر لكافة الأنظمة",
+        rates_title: "حاسبة الـ Rates", rate_low: "إنترنت ضعيف", rate_mid: "إنترنت متوسط", rate_high: "ألياف بصرية", btn_copy: "نسخ الإعدادات", admin_title: "صانع الرتب", 
+        ph_name: "الأسم", ph_pass: "كلمة المرور", ph_server_name: "اسم السيرفر", ph_rules: "قوانين السيرفر...", ph_msg: "الرسالة...", ph_idea: "اشرح فكرتك هنا...", ph_msg_support: "رسالتك...",
+        btn_copy_short: "نسخ", btn_copy_code: "نسخ الكود", btn_send_request: "إرسال الطلب", btn_send_tg: "إرسال تلغرام", btn_magic: "✨ اللمسة السحرية"
+    },
+    en: { 
+        nav_home: "Home", nav_rates: "Rates", nav_plugins: "Plugins", nav_admin: "Admin", nav_colors: "Colors", nav_request: "Request", nav_support: "Support", nav_motd: "MOTD Maker", nav_amx: "AMX MODX", 
+        search_placeholder: "Search...", welcome_desc: "The strongest platform for CS 1.6 coding", amx_title: "Download AMX MODX", amx_desc: "Stable version for all OS",
+        rates_title: "Rates Calculator", rate_low: "Low Internet", rate_mid: "Mid Internet", rate_high: "Fiber Internet", btn_copy: "Copy Settings", admin_title: "Rank Maker",
+        ph_name: "Name", ph_pass: "Password", ph_server_name: "Server Name", ph_rules: "Server Rules...", ph_msg: "Message...", ph_idea: "Explain your idea...", ph_msg_support: "Your Message...",
+        btn_copy_short: "Copy", btn_copy_code: "Copy Code", btn_send_request: "Send Request", btn_send_tg: "Send Telegram", btn_magic: "✨ Magic Touch"
+    }
+};
 
-// معالجة دخول جوجل
-function parseJwt(token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    return JSON.parse(window.atob(base64));
-}
-
-function handleCredentialResponse(response) {
-    const user = parseJwt(response.credential);
-    
-    // تحديث الهيدر
-    document.getElementById('auth-section').classList.add('hidden');
-    document.getElementById('user-info-header').classList.remove('hidden');
-    document.getElementById('header-user-name').innerText = user.name;
-    document.getElementById('header-user-img').src = user.picture;
-
-    // فتح الأقسام
-    document.getElementById('req-locked').classList.add('hidden');
-    document.getElementById('req-unlocked').classList.remove('hidden');
-    document.getElementById('sup-locked').classList.add('hidden');
-    document.getElementById('sup-unlocked').classList.remove('hidden');
-
-    // تعبئة البيانات تلقائياً
-    document.getElementById('srvIP').value = user.name + " (" + user.email + ")";
-    document.getElementById('supUser').value = user.name;
-
-    showToast("✅ تم تسجيل الدخول بنجاح يا " + user.given_name);
-}
-
-// تبديل الصفحات
-function showPage(p) {
-  ['home', 'plugins', 'colors', 'admin', 'request', 'support'].forEach(id => {
-    document.getElementById('page-'+id).classList.add('hidden');
-    document.getElementById('btn-'+id).classList.remove('active');
-  });
-  document.getElementById('page-'+p).classList.remove('hidden');
-  document.getElementById('btn-'+p).classList.add('active');
-}
-
-// رتب الأدمن
-const flagsData = [
-    {f: 'a', d: 'حصانة'}, {f: 'b', d: 'حجز'}, {f: 'c', d: 'Kick'}, 
-    {f: 'd', d: 'Ban'}, {f: 'e', d: 'Unban'}, {f: 'i', d: 'Chat'}, 
-    {f: 'j', d: 'Vote'}, {f: 'u', d: 'Menu'}, {f: 'z', d: 'User'}
+const plugins = [
+    { n: "Reset Score", c: "#include <amxmodx>\n#include <cstrike>\n#include <fun>\n\npublic plugin_init() {\n    register_clcmd(\"say /rs\", \"reset\")\n}\n\npublic reset(id) {\n    if(!is_user_alive(id)) return;\n    set_user_frags(id, 0); cs_set_user_deaths(id, 0);\n    client_print_color(id, print_team_default, \"^4[RS]^1 Score has been reset!\");\n}" },
+    { n: "Auto Restart", c: "#include <amxmodx>\n\npublic plugin_init() { set_task(1.0, \"restart_round\"); }\npublic restart_round() { server_cmd(\"sv_restart 1\"); }" },
+    { n: "Parachute", c: "#include <amxmodx>\n#include <engine>\n\npublic client_PreThink(id) {\n    if(is_user_alive(id) && (get_user_button(id) & IN_USE)) {\n        new Float:v[3]; entity_get_vector(id, EV_VEC_velocity, v);\n        if(v[2] < -100.0) { v[2] = -100.0; entity_set_vector(id, EV_VEC_velocity, v); }\n    }\n}" },
+    { n: "No Team Flash", c: "#include <amxmodx>\npublic plugin_init() { register_message(get_user_msgid(\"ScreenFade\"), \"fade\"); }\npublic fade(id) { if(get_msg_arg_int(4)==255) return 1; return 0; }" },
+    { n: "Ad Manager", c: "#include <amxmodx>\npublic plugin_init() { set_task(60.0, \"msg\", _, _, _, \"b\"); }\npublic msg() { client_print_color(0, 0, \"^4[Info]^1 Welcome to Omar_Taha Server!\"); }" },
+    { n: "Bullet Damage", c: "#include <amxmodx>\npublic plugin_init() { register_event(\"Damage\", \"dmg\", \"b\"); }\npublic dmg(id) { /* Show damage HUD logic */ }" },
+    { n: "Weapon Icon", c: "#include <amxmodx>\npublic plugin_init() { register_event(\"CurWeapon\", \"icon\", \"be\"); }\npublic icon(id) { /* Display weapon icon */ }" },
+    { n: "Back Weapons", c: "#include <amxmodx>\n#include <fakemeta>\npublic plugin_init() { register_plugin(\"BackWeapon\", \"1.0\", \"Omar\"); }" },
+    { n: "Kill Sounds", c: "#include <amxmodx>\npublic plugin_init() { register_event(\"DeathMsg\", \"kill\", \"a\"); }\npublic kill() { client_cmd(read_data(1), \"spk misc/kill\"); }" },
+    { n: "Custom Sky", c: "#include <amxmodx>\npublic plugin_precache() { set_cvar_string(\"sv_skyname\", \"space\"); }" },
+    { n: "Knife Scratch", c: "#include <amxmodx>\npublic plugin_init() { register_plugin(\"KnifeScratch\", \"1.0\", \"Omar\"); }" },
+    { n: "Health HUD", c: "#include <amxmodx>\npublic plugin_init() { set_task(1.0, \"hp\", _, _, _, \"b\"); }\npublic hp() { /* Update HUD */ }" },
+    { n: "AFK Manager", c: "#include <amxmodx>\npublic plugin_init() { set_task(10.0, \"afk\", _, _, _, \"b\"); }\npublic afk() { /* AFK Check */ }" }
 ];
-const flagContainer = document.getElementById('flag-container');
-flagsData.forEach(item => {
-    flagContainer.innerHTML += `<label class="flag-item"><input type="checkbox" value="${item.f}" checked onchange="generateRank()"> ${item.f} - ${item.d}</label>`;
-});
 
-function generateRank() {
-    const name = document.getElementById('admName').value || "Name";
-    const pass = document.getElementById('admPass').value || "Pass";
-    let sel = ""; 
-    document.querySelectorAll('#flag-container input:checked').forEach(cb => sel += cb.value);
-    document.getElementById('rankResult').innerText = `"${name}" "${pass}" "${sel}" "a"`;
+function toggleMagic() {
+    document.body.classList.toggle('magic-theme');
+    const isMagic = document.body.classList.contains('magic-theme');
+    particlesJS('particles-js', { "particles": { "number": {"value": 50}, "color": {"value": isMagic ? "#00f2ff" : "#D4AF37"}, "line_linked": {"enable": true, "opacity": 0.2, "color": isMagic ? "#00f2ff" : "#D4AF37"} } });
 }
 
-// ألوان الشات
-function updateChatGen() {
-    const color = document.getElementById('chatColor').value;
-    const text = document.getElementById('chatInput').value || "Message";
-    document.getElementById('chatResult').innerText = color + text;
-}
-
-// الإرسال لتلجرام
-function sendToTelegram(type, userField, msgField) {
-    const user = document.getElementById(userField).value;
-    const msg = document.getElementById(msgField).value;
-    if(!msg) { showToast("⚠️ الحقل فارغ!"); return; }
-
-    const text = encodeURIComponent(`📌 إشعار جديد من Hub:\nالنوع: ${type}\nالمرسل: ${user}\nالنص: ${msg}`);
-    fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${text}`)
-    .then(() => {
-        showToast("✅ تم الإرسال بنجاح");
-        document.getElementById(msgField).value = "";
+function showPage(p) {
+    ['home','plugins','admin','colors','request','support','motd', 'rates', 'amx'].forEach(id => {
+        document.getElementById('page-'+id)?.classList.add('hidden');
+        document.getElementById('btn-'+id)?.classList.remove('active');
     });
-}
-
-function showToast(m) {
-    const t = document.createElement('div');
-    t.className = 'toast'; t.innerText = m;
-    document.getElementById('toast-container').appendChild(t);
-    setTimeout(() => t.remove(), 2500);
+    document.getElementById('page-'+p).classList.remove('hidden');
+    document.getElementById('btn-'+p).classList.add('active');
 }
 
 function copy(id) {
     navigator.clipboard.writeText(document.getElementById(id).innerText);
-    showToast("✅ تم النسخ!");
+    const t = document.createElement('div'); t.className = 'toast'; t.innerText = "✅ Done Copied!";
+    document.getElementById('toast-container').appendChild(t); setTimeout(() => t.remove(), 2000);
 }
 
-function toggleCyber() { document.getElementById('bodyTag').classList.toggle('cyber-mode'); }
+function sendToTG(type) {
+    const n = document.getElementById(type === 'Support' ? 's_name' : 'r_name').value;
+    const m = document.getElementById(type === 'Support' ? 's_msg' : 'r_desc').value;
+    if(!n || !m) return;
+    const text = `🚀 **[ New ${type} Ticket ]**%0A━━━━━━━━━━━━━%0A👤 **From:** ${n}%0A📝 **Message:** ${m}%0A━━━━━━━━━━━━━`;
+    fetch(`https://api.telegram.org/bot8061885681:AAGwVrozUK7a9WprD3Dz72PhcOjMkdb5G74/sendMessage?chat_id=8008974925&text=${text}&parse_mode=Markdown`)
+    .then(() => {
+        const t = document.createElement('div'); t.className = 'toast'; t.innerText = "🚀 Sent to Omar_Taha!";
+        document.getElementById('toast-container').appendChild(t); setTimeout(() => t.remove(), 2000);
+    });
+}
 
-particlesJS('particles-js', { "particles": { "number": {"value": 40}, "color": {"value": "#8b5cf6"}, "line_linked": {"enable": true, "opacity": 0.1} } });
+function calcRates() {
+    const s = document.getElementById('r_speed').value;
+    let r = s==='low' ? "sys_ticrate 200\nsv_maxrate 25000\nsv_maxupdaterate 30\nsv_minrate 5000" : s==='mid' ? "sys_ticrate 500\nsv_maxrate 50000\nsv_maxupdaterate 60\nsv_minrate 10000" : "sys_ticrate 1000\nsv_maxrate 100000\nsv_maxupdaterate 101\nsv_minrate 25000";
+    document.getElementById('rateRes').innerText = r;
+}
+
+function render(f = "") {
+    const cont = document.getElementById('page-plugins');
+    cont.innerHTML = "";
+    plugins.forEach((p, i) => {
+        if(p.n.toLowerCase().includes(f.toLowerCase())) {
+            cont.innerHTML += `<div class="glass p-6 rounded-2xl space-y-3">
+                <div class="flex justify-between items-center"><b class="gold-text">${p.n}</b><button onclick="copy('c-${i}')" class="text-xs bg-primary text-black px-3 py-1 rounded">Copy SMA</button></div>
+                <div class="code-box p-4 max-h-40" id="c-${i}">${p.c.replace(/</g, "&lt;")}</div>
+            </div>`;
+        }
+    });
+}
+
+const flags = "abcdefghijklmnopqrstu".split("");
+flags.forEach(f => {
+    document.getElementById('flagGrid').innerHTML += `<label class="flex items-center gap-1"><input type="checkbox" value="${f}" checked onchange="updateRank()"> ${f}</label>`;
+});
+
+function updateRank() {
+    let f = ""; document.querySelectorAll('#flagGrid input:checked').forEach(i => f += i.value);
+    document.getElementById('rankRes').innerText = `"${document.getElementById('a_name').value}" "pass" "${f}" "a"`;
+}
+
+function changeLang(l) {
+    document.documentElement.dir = (l === 'ar' ? 'rtl' : 'ltr');
+    document.querySelectorAll('[data-i18n]').forEach(e => e.innerText = i18n[l][e.getAttribute('data-i18n')]);
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(e => e.placeholder = i18n[l][e.getAttribute('data-i18n-placeholder')]);
+}
+
+particlesJS('particles-js', { "particles": { "number": {"value": 40}, "color": {"value": "#D4AF37"}, "line_linked": {"enable": true, "opacity": 0.1} } });
+changeLang('ar'); updateRank(); render(); calcRates();
 </script>
 </body>
 </html>
