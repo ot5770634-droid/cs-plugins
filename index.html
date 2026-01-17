@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <title>موقع عمر لتحويل الصور</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
+        .box { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: inline-block; }
+        button { background: #28a745; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>محول الصور البسيط</h2>
+        <input type="file" id="upload" accept="image/*">
+        <br><br>
+        <button onclick="convertToJPG()">تحويل إلى JPG وتحميل</button>
+    </div>
+
+    <script>
+        function convertToJPG() {
+            const fileInput = document.getElementById('upload');
+            if (fileInput.files.length === 0) return alert("اختر صورة أولاً!");
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    
+                    // تحويل الصورة وتحميلها
+                    const link = document.createElement('a');
+                    link.download = "omar-converted.jpg";
+                    link.href = canvas.toDataURL("image/jpeg");
+                    link.click();
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>
 
